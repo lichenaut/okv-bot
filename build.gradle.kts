@@ -1,9 +1,10 @@
 plugins {
     id("java")
+    id("application")
 }
 
 group = "com.lichenaut"
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -24,4 +25,8 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+application {
+    mainClass = "com.lichenaut.Main"
 }

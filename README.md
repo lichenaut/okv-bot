@@ -1,6 +1,6 @@
 In Google Compute Engine SSH:
 
-- ```export BOT_TOKEN=...```
+- `export BOT_TOKEN=...`
 
 - `nohup ./gradlew run &>> activity.log &` to start the process.
 

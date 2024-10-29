@@ -4,7 +4,6 @@ import com.lichenaut.cmd.Restriction;
 import com.lichenaut.listen.MessageListener;
 import com.lichenaut.util.MessageScanner;
 import com.lichenaut.util.MessageSender;
-import io.github.cdimascio.dotenv.Dotenv;
 import lombok.Getter;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -22,8 +21,8 @@ import java.nio.file.Path;
 @Getter
 public class Main {
     public static void main(String[] args) throws IOException {
-        String token = Dotenv.load().get("BOT_TOKEN");
-//        String token = System.getenv("BOT_TOKEN");
+//        String token = Dotenv.load().get("BOT_TOKEN");
+        String token = System.getenv("BOT_TOKEN");
         MessageSender messageSender = new MessageSender();
         JDA jda = JDABuilder.createLight(token, GatewayIntent.GUILD_MESSAGES, GatewayIntent.MESSAGE_CONTENT)
                 .addEventListeners(new MessageListener(new MessageScanner(), messageSender))

@@ -29,14 +29,14 @@ public class Main {
                 .build();
         jda.updateCommands()
                 .addCommands(
-                        Commands.slash("restrict", "Restrict a user.")
-                                .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MODERATE_MEMBERS))
+                        Commands.slash("restrictuser", "Restrict a user.")
                                 .addOption(OptionType.USER, "user", "The user to restrict", true)
-                                .addOption(OptionType.STRING, "reason", "The restriction reason", false),
-                        Commands.slash("unrestrict", "Restore a restricted user’s roles.")
-                                .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MODERATE_MEMBERS))
+                                .addOption(OptionType.STRING, "reason", "The restriction reason", false)
+                                .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MODERATE_MEMBERS)),
+                        Commands.slash("unrestrictuser", "Restore a restricted user’s roles.")
                                 .addOption(OptionType.USER, "user", "The user to unrestrict", true)
-                                .addOption(OptionType.STRING, "reason", "The restriction reason", false),
+                                .addOption(OptionType.STRING, "reason", "The restriction reason", false)
+                                .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MODERATE_MEMBERS)),
                         Commands.slash("listrestrictions", "List all active restrictions.")
                                 .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MODERATE_MEMBERS))
                 )

@@ -40,7 +40,7 @@ public class Restriction extends ListenerAdapter {
      */
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
-        if (event.getName().equals("restrict")) {
+        if (event.getName().equals("restrictuser")) {
             Member member = Objects.requireNonNull(event.getOption("user")).getAsMember();
             String reasonString = getReasonFromEvent(event);
             if (member != null) {
@@ -48,7 +48,7 @@ public class Restriction extends ListenerAdapter {
             } else {
                 event.reply("User not found!").queue();
             }
-        } else if (event.getName().equals("unrestrict")) {
+        } else if (event.getName().equals("unrestrictuser")) {
             Member member = Objects.requireNonNull(event.getOption("user")).getAsMember();
             String reasonString = getReasonFromEvent(event);
             if (member != null) {

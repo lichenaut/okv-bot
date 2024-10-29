@@ -3,8 +3,8 @@ package com.lichenaut.listen;
 import com.lichenaut.util.MessageScanner;
 import com.lichenaut.util.MessageSender;
 import lombok.RequiredArgsConstructor;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -29,14 +29,13 @@ public class MessageListener extends ListenerAdapter {
         String messageContent = message.getContentDisplay();
         List<String> exactWords = messageScanner.exactScan(messageContent);
         List<String> subWords = messageScanner.subScan(messageContent);
-
         if (exactWords == null && subWords == null) {
             return;
         }
 
         message.delete().queue();
-        User user = event.getAuthor();
-        messageSender.sendAutoModExplanationBadWord(user, exactWords, subWords);
-        messageSender.sendOriginalMessageBadWord(user, message);
+        Member member = event.getMember();
+        messageSender.sendAutoModExplanationBadWord(member, exactWords, subWords);
+        messageSender.sendOriginalMessageBadWord(member, message);
     }
 }

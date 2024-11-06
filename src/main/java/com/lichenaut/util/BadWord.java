@@ -19,7 +19,7 @@ public enum BadWord {
     SUB_7("imbecile"),
     SUB_8("insane"),
     SUB_9("moron"),
-    SUB_10("reeee"),
+    SUB_10("reeeee"),
     SUB_11("retard"),
     SUB_12("scum"),
     SUB_13("sociopath"),
